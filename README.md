@@ -1,14 +1,14 @@
-# 🤖 AI Document Q&A Platform (RAG)
+# AI Document Q&A Platform (RAG)
 
 An AI-powered document Q&A platform that lets users upload documents (PDF/TXT) and ask questions in natural language. Built with **Retrieval-Augmented Generation (RAG)** using OpenAI, FastAPI, PostgreSQL + pgvector, and Next.js.
 
-## 🏗️ Architecture
+## Architecture
 
 User uploads PDF → Text Extraction → Chunking → Embedding (OpenAI) → Store in pgvector
 User asks question → Embed question → Vector similarity search → Retrieve top chunks → LLM generates answer
 
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -19,7 +19,7 @@ User asks question → Embed question → Vector similarity search → Retrieve 
 | **Auth** | JWT (OAuth2 Password Flow) |
 | **DevOps** | Docker, Docker Compose, GitHub Actions CI/CD |
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Docker & Docker Compose
@@ -40,7 +40,7 @@ docker-compose up --build
 - **Backend API**: http://localhost:8000/docs
 - **Frontend**: http://localhost:3000
 
-## 📡 API Endpoints
+## API Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -52,13 +52,13 @@ docker-compose up --build
 | POST | `/api/query/` | Ask a question (RAG) |
 | GET | `/api/query/history` | Get query history |
 
-## 🧪 Running Tests
+## Running Tests
 
 cd backend
 pip install -r requirements.txt
 pytest tests/ -v
 
-## 📐 Design Decisions
+## Design Decisions
 
 1. **pgvector over Pinecone/Weaviate**: Chose pgvector to keep everything in PostgreSQL - simpler infrastructure, no external vector DB costs.
 2. **Chunking Strategy**: Recursive character splitting with 1000-char chunks and 200-char overlap for context preservation.
