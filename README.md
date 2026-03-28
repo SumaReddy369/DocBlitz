@@ -4,10 +4,9 @@ An AI-powered document Q&A platform that lets users upload documents (PDF/TXT) a
 
 ## 🏗️ Architecture
 
-```
 User uploads PDF → Text Extraction → Chunking → Embedding (OpenAI) → Store in pgvector
 User asks question → Embed question → Vector similarity search → Retrieve top chunks → LLM generates answer
-```
+
 
 ## 🛠️ Tech Stack
 
@@ -28,7 +27,6 @@ User asks question → Embed question → Vector similarity search → Retrieve 
 
 ### Run the app
 
-```bash
 # Clone the repo
 git clone https://github.com/yourusername/ai-doc-qa-platform.git
 cd ai-doc-qa-platform
@@ -38,7 +36,6 @@ export OPENAI_API_KEY=sk-your-key-here
 
 # Start everything
 docker-compose up --build
-```
 
 - **Backend API**: http://localhost:8000/docs
 - **Frontend**: http://localhost:3000
@@ -57,15 +54,13 @@ docker-compose up --build
 
 ## 🧪 Running Tests
 
-```bash
 cd backend
 pip install -r requirements.txt
 pytest tests/ -v
-```
 
 ## 📐 Design Decisions
 
-1. **pgvector over Pinecone/Weaviate**: Chose pgvector to keep everything in PostgreSQL — simpler infrastructure, no external vector DB costs.
+1. **pgvector over Pinecone/Weaviate**: Chose pgvector to keep everything in PostgreSQL - simpler infrastructure, no external vector DB costs.
 2. **Chunking Strategy**: Recursive character splitting with 1000-char chunks and 200-char overlap for context preservation.
 3. **Embedding Model**: text-embedding-3-small for cost efficiency while maintaining quality.
 4. **Sync Processing**: Documents are processed synchronously on upload for simplicity. For production, this would use a task queue (Celery/Redis).
@@ -73,4 +68,3 @@ pytest tests/ -v
 ## 🚀 Deployment (Public Access)
 
 See **[DEPLOYMENT.md](./DEPLOYMENT.md)** for step-by-step instructions to deploy so anyone can access your app via a link (Railway, Vercel, Render, or VPS).
-```
