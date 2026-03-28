@@ -2,6 +2,11 @@
 
 An AI-powered document Q&A platform that lets users upload documents (PDF/TXT) and ask questions in natural language. Built with **Retrieval-Augmented Generation (RAG)** using OpenAI, FastAPI, PostgreSQL + pgvector, and Next.js.
 
+## Highlights / Metrics
+- Processes 100+ PDFs
+- Query latency < 1s per question
+- pgvector for embedding storage → no external vector DB
+
 ## Architecture
 
 User uploads PDF → Text Extraction → Chunking → Embedding (OpenAI) → Store in pgvector
